@@ -8,7 +8,6 @@
 #include "SMS_Support.hpp"
 
 class SMS_Mapper {
-    byte
 };
 
 
