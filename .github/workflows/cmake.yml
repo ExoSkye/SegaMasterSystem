@@ -75,6 +75,6 @@ jobs:
         name: SegaMasterSystemEmulator
         path: |
           ${{runner.workspace}}/build/SegaMasterSystem
-          ${{runner.workspace}}/build/SegaMasterSystem.exe
+          ${{runner.workspace}}/build/Release/SegaMasterSystem.exe
 
 
