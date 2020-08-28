@@ -1,22 +1,12 @@
 #include "SMS_Mapper.hpp"
 #include "SMS_Support.hpp"
+#include "SMS_Z80.hpp"
+#include "GEN_TESTS.hpp"
 #include <cstring>
 #include <cstdio>
 
 void testMode() {
-#define TEST_INFO(name) printf("Running test: %s",name);
-#define TEST_CODE(setupCode) { #setupCode;
-#define TEST_CONDITION(condition)   \
-if( #condition ) {                   \
-printf("Test succeeded");             \
-} else {                               \
-printf("Test failed");                  \
-exit(1);                                 \
-}}
-#include "tests.inl"
-#undef TEST_INFO
-#undef TEST_CODE
-#undef TEST_CONDITION
+    GEN_TESTS()
 }
 
 void emulatorMode(bool verbose) {

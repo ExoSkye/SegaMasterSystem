@@ -8,5 +8,5 @@
 #include <stdint.h>
 
 typedef int8_t byte;
-
+typedef int16_t dbyte;
 #endif //SEGAMASTERSYSTEM_SMS_SUPPORT_HPP
