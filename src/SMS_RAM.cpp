@@ -5,7 +5,7 @@
 #include "SMS_RAM.hpp"
 
 SMS_RAM::SMS_RAM() {
-    m_Memory = (byte*)alloca(sizeof(byte)*8192);
+    m_Memory = (byte*)alloca(sizeof(byte)*0x2000);
 }
 
 byte &SMS_RAM::operator[](int16_t index) {
