@@ -72,4 +72,6 @@ jobs:
       uses: actions/upload-artifact@v2.1.4
       with:
         name: SegaMasterSystemEmulator
-        path: ${{runner.workspace}}/build/${{ matrix.config.name }}
+        path: |
+        ${{runner.workspace}}/build/${{ matrix.config.name }}
+        ${{runner.workspace}}/build/$BUILD_TYPE/${{ matrix.config.name }}.exe
