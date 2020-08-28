@@ -35,9 +35,9 @@ jobs:
             build_type: "Release", cc: "gcc", cxx: "g++"
           }
           - {
-              name: "Ubuntu Latest Clang", artifact: "LinuxClang.tar.xz"
-              os: ubuntu-latest,
-              build_type: "Release", cc: "clang", cxx: "clang++"
+            name: "Ubuntu Latest Clang", artifact: "LinuxClang.tar.xz"
+            os: ubuntu-latest,
+            build_type: "Release", cc: "clang", cxx: "clang++"
           }
           - {
             name: "macOS Latest Clang", artifact: "macOS.tar.xz",
