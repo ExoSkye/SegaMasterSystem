@@ -73,5 +73,5 @@ jobs:
       with:
         name: SegaMasterSystemEmulator
         path: |
-        ${{runner.workspace}}/build/${{ matrix.config.name }}
-        ${{runner.workspace}}/build/$BUILD_TYPE/${{ matrix.config.name }}.exe
+          ${{runner.workspace}}/build/${{ matrix.config.name }}
+          ${{runner.workspace}}/build/$BUILD_TYPE/${{ matrix.config.name }}.exe
