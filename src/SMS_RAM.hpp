@@ -6,11 +6,9 @@
 #define SEGAMASTERSYSTEM_SMS_RAM_HPP
 
 #include "SMS_Support.hpp"
-#if defined(__APPLE__) || defined(__linux__)
-#include <alloca.h>
-#elif defined(_WIN32)
+#include <cstring>
 #include <malloc.h>
-#endif
+
 class SMS_RAM {
 private:
     byte* m_Memory;

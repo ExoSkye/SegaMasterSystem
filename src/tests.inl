@@ -14,3 +14,38 @@ z80.r_B = 64;
 z80.r_C = 64;
 )
 TEST_CONDITION(z80.BC() == 16448)
+TEST_INFO("Mapper out of range support\n")
+TEST_CODE(SMS_Mapper map(1);
+bool caught = false;
+try {
+map[0x10000] = 0;
+}
+catch (const std::out_of_range& e) {
+    caught = true;
+}
+)
+TEST_CONDITION(caught)
+TEST_INFO("After init the ROM is all zeros (through SMS_Mapper)\n")
+TEST_CODE(SMS_Mapper map(1);)
+TEST_CONDITION(map[0] == 0)
+TEST_INFO("After init the ROM is all zeros (through SMS_ROM)\n")
+TEST_CODE(SMS_ROM map(1);)
+TEST_CONDITION(map[0] == 0)
+TEST_INFO("After init the RAM is all zeros (through SMS_Mapper)\n")
+TEST_CODE(SMS_Mapper mapram(1);
+bool allzero = true;
+for (int i = 0xc000; i < 0xe000; i++) {
+    if (mapram[i] != 0) {
+        allzero = false;
+    }
+})
+TEST_CONDITION(allzero)
+TEST_INFO("After init the RAM is all zeros (through SMS_RAM)\n")
+TEST_CODE(SMS_RAM ram;
+bool allzero = true;
+for (int i = 0; i < 0x2000; i++) {
+if (ram[i] != 0) {
+allzero = false;
+}
+})
+TEST_CONDITION(allzero)
