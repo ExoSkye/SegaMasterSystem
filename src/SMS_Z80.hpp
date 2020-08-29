@@ -20,6 +20,7 @@ public:
     dbyte r_IX = 0, r_IY = 0, r_SP = 0, r_PC = 0;
     doubleReg BC = doubleReg(&r_B, &r_C), DE = doubleReg(&r_D, &r_E), HL = doubleReg(&r_H, &r_L);
     SMS_Z80();
+    void startExecution();
 };
 
 

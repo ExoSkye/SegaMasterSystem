@@ -18,3 +18,7 @@ dbyte doubleReg::operator()() {
 SMS_Z80::SMS_Z80() {
 
 }
+
+void SMS_Z80::startExecution() {
+
+}
