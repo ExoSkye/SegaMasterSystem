@@ -7,7 +7,11 @@
 
 #include "SMS_Support.hpp"
 #include <cstring>
+#ifdef __APPLE__
+#include <stdlib.h>
+#else
 #include <malloc.h>
+#endif
 
 class SMS_RAM {
 private:
