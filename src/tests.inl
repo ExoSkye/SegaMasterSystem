@@ -10,10 +10,16 @@ subject[0xe001] = 1;
 TEST_CONDITION(subject[0xc001] == 1)
 TEST_INFO("Z80 double register support\n")
 TEST_CODE(SMS_Z80 z80;
+bool success1 = true;
 z80.r_B = 64;
 z80.r_C = 64;
-)
-TEST_CONDITION(z80.BC() == 16448)
+success1 = success1 && (z80.BC() == 16448);
+z80.HL++;
+success1 = success1 && (z80.HL() == 1)  ;
+z80.HL--;
+success1 = success1 && (z80.HL() == 0)  ;
+        )
+TEST_CONDITION(success1)
 TEST_INFO("Mapper out of range support\n")
 TEST_CODE(SMS_Mapper map(1);
 bool caught = false;
@@ -49,3 +55,4 @@ allzero = false;
 }
 })
 TEST_CONDITION(allzero)
+
