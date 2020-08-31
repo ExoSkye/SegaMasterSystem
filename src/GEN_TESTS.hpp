@@ -15,15 +15,15 @@ void runTests() {
     int failure = 0;
 #define TEST_INFO(name) printf("Running test: %s",name);
 #define TEST_CODE(setupCode) { setupCode;
-#define TEST_CONDITION(condition) \
-if( condition ) {                \
-allTests &= true;  \
-printf("Test succeeded\n");       \
-success++;\
-} else {                          \
-allTests &= false;\
-printf("Test failed\n");          \
-failure++; \
+#define TEST_CONDITION(condition)   \
+if( condition ) {                   \
+allTests &= true;                   \
+printf("Test succeeded\n");         \
+success++;                          \
+} else {                            \
+allTests &= false;                  \
+printf("Test failed\n");            \
+failure++;                          \
 }}
 #include "tests.inl"
     if(allTests) {

@@ -9,4 +9,5 @@
 
 typedef int8_t byte;
 typedef int16_t dbyte;
+typedef int32_t qbyte;
 #endif //SEGAMASTERSYSTEM_SMS_SUPPORT_HPP
