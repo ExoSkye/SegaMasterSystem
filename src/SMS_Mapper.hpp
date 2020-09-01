@@ -16,8 +16,8 @@ public:
     SMS_RAM* smsRam;
     explicit SMS_Mapper(int cartridge_size);
     byte& operator[](unsigned int index);
+    byte &at(int16_t index);
 private:
-    int m_GetROMBank(int index);
 };
 
 

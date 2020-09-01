@@ -96,3 +96,25 @@ flags SMS_Z80::getFlags(byte r_F) {
 bool SMS_Z80::getBit(byte in, int index) {
     return (in & 1 << index) >> index;
 }
+
+void SMS_Z80::nextInstruction() {
+    r_PC++;
+    byte curInst = memory->operator[](r_PC);
+    if (curInst == (byte)0xC7) {
+        clock->tick(11);
+        startExecution();
+    }
+#define instOpcode(num, cycles) else if (curInst == (byte)num) { clock->tick(cycles); \
+byte second = memory->at(r_PC+1); \
+byte third = memory->at(r_PC+2);  \
+byte fourth = memory->at(r_PC+3);
+#define instCode(code) code;
+#define instAddressMode(var_name, value, code) if (var_name == (byte)value) { code; }
+#define instEnd() }
+#include "instructions.inl"
+#undef instOpcode
+#undef instGetData
+#undef instCode
+#undef instAddressMode
+#undef instEnd
+}
