@@ -13,11 +13,11 @@ TEST_CODE(SMS_Z80 z80;
 bool success1 = true;
 z80.r_B = 64;
 z80.r_C = 64;
-success1 = success1 && (z80.BC() == 16448);
-z80.HL++;
-success1 = success1 && (z80.HL() == 1)  ;
-z80.HL--;
-success1 = success1 && (z80.HL() == 0)  ;
+success1 = success1 && (z80.r_BC() == 16448);
+z80.r_HL++;
+success1 = success1 && (z80.r_HL() == 1)  ;
+z80.r_HL--;
+success1 = success1 && (z80.r_HL() == 0)  ;
         )
 TEST_CONDITION(success1)
 TEST_INFO("Mapper out of range support\n")
@@ -48,11 +48,10 @@ for (int i = 0xc000; i < 0xe000; i++) {
 TEST_CONDITION(allzero)
 TEST_INFO("After init the RAM is all zeros (through SMS_RAM)\n")
 TEST_CODE(SMS_RAM ram;
-bool allzero = true;
+bool allzero1 = true;
 for (int i = 0; i < 0x2000; i++) {
 if (ram[i] != 0) {
-allzero = false;
+allzero1 = false;
 }
 })
-TEST_CONDITION(allzero)
-
+TEST_CONDITION(allzero1)
